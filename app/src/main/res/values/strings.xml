@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Sk-Health</string>
+    <string name="app_name">Dr. Skin</string>
+    <string name="rules_button_text">Let\'s get into it!</string>
+    <string name="accept_rules_text">I have read the rules.</string>
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="appointments">Appointments</string>
+    <string name="rules">Rules!</string>
 </resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/rules"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background"
+        android:orientation="vertical"
+        tools:context=".ui.main.onboarding.RulesFragment">
+
+        <FrameLayout
+            android:id="@+id/rulesItem"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/main_screen_margin">
+
+            <View
+                android:id="@+id/gradientCircle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/gradient_circle"
+                android:elevation="10dp" />
+
+            <ImageView
+                android:id="@+id/recordsImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:elevation="11dp"
+                android:src="@drawable/record_img" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/checkAnimationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="15dp"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/check_mark" />
+        </FrameLayout>
+
+        <ScrollView
+            android:id="@+id/rulesScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/main_screen_margin"
+            android:layout_weight="1.0">
+
+            <TextView
+                android:id="@+id/rules_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rules"
+                android:textColor="@color/white"
+                android:textSize="@dimen/main_text_size" />
+        </ScrollView>
+
+        <CheckBox
+            android:id="@+id/rulesCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/main_screen_margin"
+            android:buttonTint="@color/main_teal"
+            android:text="@string/accept_rules_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_text_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/acceptRulesButton"
+            style="@style/disabled_button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginHorizontal="@dimen/main_screen_margin"
+            android:layout_marginBottom="15dp"
+            android:enabled="false"
+            android:text="@string/rules_button_text"
+            app:cornerRadius="@dimen/button_corner_radius" />
+    </LinearLayout>
+</layout>

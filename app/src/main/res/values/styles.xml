@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="splash_text_style">
+        <item name="android:fontFamily">@font/patrick_kedilay</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="button_style" parent="ThemeOverlay.AppCompat">
+        <item name="android:textColor">@color/main_deep_blue</item>
+        <item name="android:backgroundTint">@color/main_teal</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <style name="disabled_button_style" parent="ThemeOverlay.AppCompat">
+        <item name="android:textColor">@color/disabled_button_text</item>
+        <item name="android:backgroundTint">@color/disabled_button_color</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+</resources>

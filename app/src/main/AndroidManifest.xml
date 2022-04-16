@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkHealth">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.root.RootActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.onboarding.OnboardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
