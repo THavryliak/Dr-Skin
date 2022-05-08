@@ -14,10 +14,10 @@
 
         <FrameLayout
             android:id="@+id/rulesItem"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="@dimen/main_screen_margin">
+            android:layout_marginHorizontal="@dimen/main_margin">
 
             <View
                 android:id="@+id/gradientCircle"
@@ -29,8 +29,8 @@
 
             <ImageView
                 android:id="@+id/recordsImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:elevation="11dp"
                 android:src="@drawable/record_img" />
@@ -49,7 +49,7 @@
             android:id="@+id/rulesScrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/main_screen_margin"
+            android:layout_marginHorizontal="@dimen/main_margin"
             android:layout_weight="1.0">
 
             <TextView
@@ -65,7 +65,7 @@
             android:id="@+id/rulesCheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/main_screen_margin"
+            android:layout_marginHorizontal="@dimen/main_margin"
             android:buttonTint="@color/main_teal"
             android:text="@string/accept_rules_text"
             android:textColor="@color/white"
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_marginHorizontal="@dimen/main_screen_margin"
+            android:layout_marginHorizontal="@dimen/main_margin"
             android:layout_marginBottom="15dp"
             android:enabled="false"
             android:text="@string/rules_button_text"

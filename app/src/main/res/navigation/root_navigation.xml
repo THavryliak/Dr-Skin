@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.sk_health.ui.main.root.HomeFragment"
+        android:name="com.example.sk_health.ui.main.root.home.HomeFragment"
         android:label="root_fragment"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/appointmentsFragment"
-        android:name="com.example.sk_health.ui.main.root.AppointmentsFragment"
+        android:name="com.example.sk_health.ui.main.root.appointments.AppointmentsFragment"
         android:label="fragment_appointments"
         tools:layout="@layout/fragment_appointments" />
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.sk_health.ui.main.root.HistoryFragment"
+        android:name="com.example.sk_health.ui.main.root.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

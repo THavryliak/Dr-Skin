@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_blue">#00FAEB</color>
+    <color name="transparent_main_blue">#E600FAEB</color>
     <color name="main_deep_blue">#0869FA</color>
     <color name="main_teal">#00FFC6</color>
     <color name="disabled_button_color">#BEBEBE</color>

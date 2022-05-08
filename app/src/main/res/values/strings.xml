@@ -6,4 +6,10 @@
     <string name="history">History</string>
     <string name="appointments">Appointments</string>
     <string name="rules">Rules!</string>
+    <string name="take_photo">Take a photo</string>
+    <string name="acne_info">Acne info</string>
+    <string name="normal_skin_info">Normal skin info</string>
+    <string name="nail_fungus_info">Nail fungus info</string>
+    <string name="skin_allergy_info">Skin allergy info</string>
+    <string name="hair_loss_info">Hair loss info</string>
 </resources>

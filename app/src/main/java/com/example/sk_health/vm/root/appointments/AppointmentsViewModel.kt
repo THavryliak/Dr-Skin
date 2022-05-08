@@ -1,4 +1,4 @@
-package com.example.sk_health.vm.root
+package com.example.sk_health.vm.root.appointments
 
 import androidx.lifecycle.ViewModel
 
