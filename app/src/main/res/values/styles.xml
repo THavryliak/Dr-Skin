@@ -8,7 +8,7 @@
 
     <style name="button_style" parent="ThemeOverlay.AppCompat">
         <item name="android:textColor">@color/main_deep_blue</item>
-        <item name="android:backgroundTint">@color/main_teal</item>
+        <item name="android:backgroundTint">@color/main_blue</item>
         <item name="android:textSize">@dimen/button_text_size</item>
     </style>
 

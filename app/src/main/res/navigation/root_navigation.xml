@@ -12,12 +12,22 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/appointmentsFragment"
-        android:name="com.example.sk_health.ui.main.root.appointments.AppointmentsFragment"
+        android:name="com.example.sk_health.ui.main.root.appointment_flow.appointment_list.AppointmentsListFragment"
         android:label="fragment_appointments"
-        tools:layout="@layout/fragment_appointments" />
+        tools:layout="@layout/fragment_appointments" >
+        <action
+            android:id="@+id/action_appointmentsFragment_to_appointmentFragment"
+            app:destination="@id/appointmentFragment">
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.sk_health.ui.main.root.history.HistoryFragment"
+        android:name="com.example.sk_health.ui.main.root.history_list.HistoryListFragment"
         android:label="fragment_history"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history_list" />
+    <fragment
+        android:id="@+id/appointmentFragment"
+        android:name="com.example.sk_health.ui.main.root.appointment_flow.appointment.AppointmentFragment"
+        android:label="fragment_appointment"
+        tools:layout="@layout/fragment_appointment"/>
 </navigation>

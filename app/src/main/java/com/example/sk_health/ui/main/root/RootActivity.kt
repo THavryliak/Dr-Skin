@@ -11,8 +11,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.sk_health.R
 import com.example.sk_health.databinding.RootActivityBinding
-import com.example.sk_health.di.ApplicationModule
-import com.example.sk_health.di.DaggerApplicationComponent
 import com.example.sk_health.di.app.App
 
 class RootActivity : AppCompatActivity() {
@@ -22,6 +20,9 @@ class RootActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.root_activity)
+
+        (applicationContext as App).appComponent.inject(this)
+
         val navController = (supportFragmentManager.findFragmentById(R.id.rootFragmentContainerView) as NavHostFragment).navController
         binding.bottomNavMenu.setupWithNavController(navController)
 
@@ -34,6 +35,6 @@ class RootActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = mutableListOf (Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO).toTypedArray()
+        private val REQUIRED_PERMISSIONS = mutableListOf (Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE).toTypedArray()
     }
 }

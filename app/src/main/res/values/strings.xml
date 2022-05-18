@@ -5,11 +5,15 @@
     <string name="home">Home</string>
     <string name="history">History</string>
     <string name="appointments">Appointments</string>
-    <string name="rules">Rules!</string>
+    <string name="rules"><font color="#00FFC6">About.</font>\n\nThis app is using Machine Learning model to recognize some skin diseases including:\n\t\t<font color="#fe2712">Acne</font>\n\t\t<font color="#fe2712">Skin allergy</font>\n\t\t<font color="#fe2712">Nail fungus</font>\n\t\t<font color="#fe2712">Hair loss</font>\nAlso the app will tell you if you have healthy skin.\n\n<font color="#00FFC6">Features.</font>\n\nWith this app you can:\n<font color="#00FFC6">•</font> Using phone camera you can easily determine if you have some skin problems.\n<font color="#00FFC6">•</font> Read useful info.\n<font color="#00FFC6">•</font> You can save your diagnosis as a history.\n<font color="#00FFC6">•</font> Need to visit a doctor? Using the app - make an appointment and attach your history. Also as a reminder you can add a note to your newly created appointment.\n</string>
     <string name="take_photo">Take a photo</string>
     <string name="acne_info">Acne info</string>
     <string name="normal_skin_info">Normal skin info</string>
     <string name="nail_fungus_info">Nail fungus info</string>
     <string name="skin_allergy_info">Skin allergy info</string>
     <string name="hair_loss_info">Hair loss info</string>
+    <string name="no_history">No history items yet.</string>
+    <string name="no_appointments">No appointment items yet.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

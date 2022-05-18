@@ -4,6 +4,7 @@
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".di.app.App"
@@ -15,7 +16,11 @@
         android:theme="@style/Theme.SkHealth">
         <activity
             android:name=".ui.main.root.RootActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.main.onboarding.OnboardingActivity"
             android:exported="true">

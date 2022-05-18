@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/main_deep_blue"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/small_margin"
-    app:cardBackgroundColor="@color/transparent_main_blue"
+    android:layout_margin="@dimen/common_margin"
+    app:cardBackgroundColor="@color/transparent_white"
     app:cardCornerRadius="@dimen/card_radius"
     app:cardElevation="10dp">
 
@@ -17,8 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginHorizontal="@dimen/main_margin"
-            android:layout_marginBottom="@dimen/small_margin"
+            android:layout_marginHorizontal="@dimen/big_margin"
+            android:layout_marginBottom="@dimen/common_margin"
             android:orientation="vertical">
 
             <FrameLayout
@@ -57,14 +59,14 @@
                 android:id="@+id/probability"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/main_deep_blue"
                 tools:text="Probability" />
 
             <TextView
                 android:id="@+id/disease_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/main_deep_blue"
                 tools:text="Disease info" />
 
         </LinearLayout>
@@ -75,8 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
-            android:layout_margin="@dimen/small_margin"
-            android:backgroundTint="@color/main_deep_blue"
+            android:layout_margin="@dimen/common_margin"
+            android:backgroundTint="@color/main_blue"
             android:src="@drawable/back_arrow" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -84,9 +86,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/small_margin"
-            android:backgroundTint="@color/main_deep_blue"
+            android:layout_margin="@dimen/common_margin"
+            android:backgroundTint="@color/main_blue"
             android:src="@drawable/add_icon" />
 
     </FrameLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

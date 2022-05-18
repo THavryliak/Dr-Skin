@@ -14,34 +14,23 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.sk_health.R
 import com.example.sk_health.databinding.FragmentHomeBinding
 import com.example.sk_health.di.app.App
-import com.example.sk_health.di.vm_factory.HomeViewModelFactory
 import com.example.sk_health.vm.root.home.HomeViewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import javax.inject.Inject
-
 
 class HomeFragment : Fragment() {
 
-    @Inject
-    lateinit var vmFactory: HomeViewModelFactory
-    private lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModels { (requireContext().applicationContext as App).appComponent.viewModelsFactory() }
     private lateinit var binding : FragmentHomeBinding
     private lateinit var imageCapture: ImageCapture
     private lateinit var cameraExecutor: ExecutorService
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (requireContext().applicationContext as App).appComponent.inject(this)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        viewModel = ViewModelProvider(this, vmFactory)[HomeViewModel::class.java]
         return binding.root
     }
 
