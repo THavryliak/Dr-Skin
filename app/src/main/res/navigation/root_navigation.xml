@@ -22,12 +22,21 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.sk_health.ui.main.root.history_list.HistoryListFragment"
+        android:name="com.example.sk_health.ui.main.root.history_flow.history_list.HistoryListFragment"
         android:label="fragment_history"
-        tools:layout="@layout/fragment_history_list" />
+        tools:layout="@layout/fragment_history_list" >
+        <action
+            android:id="@+id/action_historyFragment_to_historyItemFragment"
+            app:destination="@id/historyItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/appointmentFragment"
         android:name="com.example.sk_health.ui.main.root.appointment_flow.appointment.AppointmentFragment"
         android:label="fragment_appointment"
         tools:layout="@layout/fragment_appointment"/>
+    <fragment
+        android:id="@+id/historyItemFragment"
+        android:name="com.example.sk_health.ui.main.root.history_flow.history.HistoryItemFragment"
+        android:label="fragment_history_item"
+        tools:layout="@layout/fragment_history_item" />
 </navigation>

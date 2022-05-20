@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.sk_health.R
 import com.example.sk_health.databinding.RootActivityBinding
-import com.example.sk_health.di.app.App
+import com.example.sk_health.App
 
 class RootActivity : AppCompatActivity() {
 

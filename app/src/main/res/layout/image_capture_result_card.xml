@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    app:strokeWidth="2dp"
-    app:strokeColor="@color/main_deep_blue"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/common_margin"
-    app:cardBackgroundColor="@color/transparent_white"
+    app:cardBackgroundColor="@color/transparent_black"
     app:cardCornerRadius="@dimen/card_radius"
-    app:cardElevation="10dp">
+    app:cardElevation="10dp"
+    app:strokeColor="@color/main_blue"
+    app:strokeWidth="2dp">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -50,45 +50,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginVertical="5dp"
+                android:fontFamily="@font/patrick_kedilay"
                 android:textAlignment="center"
-                android:textColor="@color/main_deep_blue"
-                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
                 tools:text="Title" />
 
-            <TextView
-                android:id="@+id/probability"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/main_deep_blue"
-                tools:text="Probability" />
+                android:layout_marginBottom="65dp"
+                android:scrollbars="none">
 
-            <TextView
-                android:id="@+id/disease_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/main_deep_blue"
-                tools:text="Disease info" />
+                <TextView
+                    android:id="@+id/disease_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    tools:text="Disease info" />
+            </ScrollView>
 
         </LinearLayout>
 
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/back_btn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
+            android:layout_gravity="bottom"
             android:layout_margin="@dimen/common_margin"
-            android:backgroundTint="@color/main_blue"
-            android:src="@drawable/back_arrow" />
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/save_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/common_margin"
-            android:backgroundTint="@color/main_blue"
-            android:src="@drawable/add_icon" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/main_blue"
+                android:src="@drawable/back_arrow" />
+
+            <TextView
+                android:id="@+id/probability"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/main_blue"
+                tools:text="Probability" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:backgroundTint="@color/main_blue"
+                android:src="@drawable/add_icon" />
+
+        </LinearLayout>
+
 
     </FrameLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -16,12 +16,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.example.sk_health.App
 import com.example.sk_health.R
 import com.example.sk_health.databinding.FragmentAppointmentBinding
-import com.example.sk_health.di.app.App
 import com.example.sk_health.vm.root.appointment_flow.AppointmentStatus
 import com.example.sk_health.vm.root.appointment_flow.AppointmentVisitType
-import com.example.sk_health.vm.root.appointment_flow.appointment.AppointmentViewData
 import com.example.sk_health.vm.root.appointment_flow.appointment.AppointmentViewModel
 
 class AppointmentFragment : Fragment() {
@@ -53,10 +52,13 @@ class AppointmentFragment : Fragment() {
             binding.dbLoadingSpinner.isVisible = true
         }
 
+        initColorStateDueToVisitType()
+
         viewModel.init(args)
 
         viewModel.appointment.observe(viewLifecycleOwner) {
             fillAppointmentCard(it)
+            initColorStateDueToVisitType()
         }
 
         viewModel.validationError.observe(viewLifecycleOwner) { isValid ->
@@ -85,38 +87,78 @@ class AppointmentFragment : Fragment() {
         }
 
         binding.doneStatusBtn.setOnClickListener {
-//            resetStatusButtons()
-//            binding.doneStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
             appointmentStatus = AppointmentStatus.ACCEPTED
+            resetStatusButtons()
+            binding.doneStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentStatus.color))
         }
 
         binding.rejectedStatusBtn.setOnClickListener {
-//            resetStatusButtons()
-//            binding.rejectedStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.RED)
             appointmentStatus = AppointmentStatus.REJECTED
+            resetStatusButtons()
+            binding.rejectedStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentStatus.color))
         }
 
         binding.newStatusBtn.setOnClickListener {
-//            resetStatusButtons()
-//            binding.newStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.BLUE)
-//            binding.newStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.BLUE)
             appointmentStatus = AppointmentStatus.NEW
+            resetStatusButtons()
+            binding.newStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentStatus.color))
         }
 
         binding.commonVisitBtn.setOnClickListener {
             appointmentVisitType = AppointmentVisitType.COMMON
+            resetTherapyTypeButtons()
+            binding.commonVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+            binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
         }
 
         binding.childrenVisitBtn.setOnClickListener {
             appointmentVisitType = AppointmentVisitType.CHILDREN
+            resetTherapyTypeButtons()
+            binding.childrenVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+            binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
         }
 
         binding.therapyVisitBtn.setOnClickListener {
             appointmentVisitType = AppointmentVisitType.THERAPY
+            resetTherapyTypeButtons()
+            binding.therapyVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+            binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
         }
 
         binding.consultationVisitBtn.setOnClickListener {
             appointmentVisitType = AppointmentVisitType.CONSULTATION
+            resetTherapyTypeButtons()
+            binding.consultationVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+            binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
+        }
+    }
+
+    private fun initColorStateDueToVisitType() {
+        resetStatusButtons()
+        resetTherapyTypeButtons()
+        when(appointmentVisitType) {
+            AppointmentVisitType.COMMON -> {
+                binding.commonVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+                binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
+            }
+            AppointmentVisitType.THERAPY -> {
+                binding.therapyVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+                binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
+            }
+            AppointmentVisitType.CHILDREN -> {
+                binding.childrenVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+                binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
+            }
+            AppointmentVisitType.CONSULTATION -> {
+                binding.consultationVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentVisitType.color))
+                binding.appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
+            }
+        }
+
+        when(appointmentStatus) {
+            AppointmentStatus.REJECTED -> binding.rejectedStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentStatus.color))
+            AppointmentStatus.NEW -> binding.newStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentStatus.color))
+            AppointmentStatus.ACCEPTED -> binding.doneStatusBtn.backgroundTintList = ColorStateList.valueOf(Color.parseColor(appointmentStatus.color))
         }
     }
 
@@ -128,14 +170,21 @@ class AppointmentFragment : Fragment() {
         }
     }
 
+    private fun resetTherapyTypeButtons() {
+        binding.apply {
+            childrenVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+            therapyVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+            commonVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+            consultationVisitBtn.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+        }
+    }
+
     private fun enableValidationError() {
         binding.appointmentDateInput.error = "This field is required."
-        binding.diseaseInput.error = "This field is required."
         binding.doctorInput.error = "This field is required."
         binding.doctorTypeInput.error = "This field is required."
 
         binding.appointmentDateInput.isErrorEnabled = true
-        binding.diseaseInput.isErrorEnabled = true
         binding.doctorInput.isErrorEnabled = true
         binding.doctorTypeInput.isErrorEnabled = true
     }
@@ -159,8 +208,10 @@ class AppointmentFragment : Fragment() {
         appointmentStatus = viewData.statusType
         appointmentVisitType = viewData.therapyType
         binding.apply {
+            appointmentFormCard.strokeColor = Color.parseColor(appointmentVisitType.color)
             dbLoadingSpinner.isVisible = false
             doctorEt.setText(viewData.doctor)
+            doctorTypeEt.setText(viewData.doctorType)
             diseaseEt.setText(viewData.disease)
             addressEt.setText(viewData.address)
             phoneEt.setText(viewData.phone)

@@ -16,7 +16,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/main_background">
+            android:background="@drawable/card_gradient">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,17 +32,19 @@
                         android:id="@+id/gradientCircle"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:background="@drawable/gradient_circle"
                         android:elevation="7dp" />
 
-                    <ImageView
-                        android:id="@+id/recordsImage"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/logoAnimation"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:elevation="8dp"
-                        android:src="@drawable/doc_image" />
+                        app:lottie_autoPlay="true"
+                        app:lottie_rawRes="@raw/dr_card" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -57,9 +59,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/patrick_kedilay"
                         android:includeFontPadding="false"
-                        android:textColor="@color/main_teal"
-                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
                         tools:text="Dr. Skin" />
 
                     <TextView
@@ -71,16 +74,6 @@
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         tools:text="Surgeon" />
-
-                    <TextView
-                        android:id="@+id/disease"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:includeFontPadding="false"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        tools:text="Acne" />
 
                     <TextView
                         android:id="@+id/appointment_date"
@@ -119,9 +112,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="10dp"
+                                android:fontFamily="@font/patrick_kedilay"
                                 android:text="New"
                                 android:textColor="@color/white"
-                                android:textSize="12dp" />
+                                android:textSize="15dp" />
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
@@ -137,9 +131,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="10dp"
+                                android:fontFamily="@font/patrick_kedilay"
                                 android:text="Common"
                                 android:textColor="@color/white"
-                                android:textSize="12dp" />
+                                android:textSize="15dp" />
                         </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>

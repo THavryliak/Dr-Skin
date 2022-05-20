@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/big_margin"
-            android:buttonTint="@color/main_teal"
+            android:buttonTint="@color/main_blue"
             android:text="@string/accept_rules_text"
             android:textColor="@color/white"
             android:textSize="@dimen/main_text_size" />

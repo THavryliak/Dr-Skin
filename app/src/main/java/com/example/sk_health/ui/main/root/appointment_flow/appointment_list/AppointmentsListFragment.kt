@@ -13,8 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.sk_health.R
 import com.example.sk_health.databinding.FragmentAppointmentsBinding
-import com.example.sk_health.di.app.App
-import com.example.sk_health.vm.root.appointment_flow.appointment_list.AppointmentItemViewData
+import com.example.sk_health.App
 import com.example.sk_health.vm.root.appointment_flow.appointment_list.AppointmentsListViewModel
 
 class AppointmentsListFragment : Fragment() {

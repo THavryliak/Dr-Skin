@@ -12,34 +12,34 @@ class AppointmentsProvisor @Inject constructor(
     @NotNull private val realmConfig: RealmConfiguration
 ) : IAppointmentsProvisor {
 
-    override suspend fun getAppointments(): List<Appointment> {
+    override suspend fun getAppointments(): List<AppointmentItemLocal> {
         val realm = Realm.getInstance(realmConfig)
-        val list = mutableListOf<Appointment>()
+        val list = mutableListOf<AppointmentItemLocal>()
         realm.executeTransactionAwait(Dispatchers.IO) {
-            list.addAll(it.where<Appointment>().findAll())
+            list.addAll(it.where<AppointmentItemLocal>().findAll())
         }
         return list
     }
 
-    override suspend fun addOrUpdateAppointment(appointment: Appointment) {
+    override suspend fun addOrUpdateAppointment(appointment: AppointmentItemLocal) {
         val realm = Realm.getInstance(realmConfig)
         realm.executeTransactionAwait(Dispatchers.IO) {
             it.insertOrUpdate(appointment)
         }
     }
 
-    override suspend fun deleteAppointment(appointment: Appointment) {
+    override suspend fun deleteAppointment(appointment: AppointmentItemLocal) {
         val realm = Realm.getInstance(realmConfig)
         realm.executeTransactionAwait(Dispatchers.IO) {
             appointment.deleteFromRealm()
         }
     }
 
-    override suspend fun getAppointmentById(appointmentId: String): Appointment? {
+    override suspend fun getAppointmentById(appointmentId: String): AppointmentItemLocal? {
         val realm = Realm.getInstance(realmConfig)
-        var appointment: Appointment? = null
+        var appointment: AppointmentItemLocal? = null
         realm.executeTransactionAwait(Dispatchers.IO) {
-            appointment = it.where<Appointment>().equalTo("id", appointmentId).findFirst()
+            appointment = it.where<AppointmentItemLocal>().equalTo("id", appointmentId).findFirst()
         }
         return appointment
     }

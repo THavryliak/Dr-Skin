@@ -11,6 +11,6 @@
         android:type="linear" />
 
     <stroke
-        android:color="@color/main_deep_blue"
+        android:color="@color/main_blue"
         android:width="2dp"/>
 </shape>

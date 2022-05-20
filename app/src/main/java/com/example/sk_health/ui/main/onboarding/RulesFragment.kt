@@ -57,8 +57,8 @@ class RulesFragment : Fragment() {
     }
 
     private fun enableRulesButton() {
-        binding.acceptRulesButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.main_teal))
-        binding.acceptRulesButton.setTextColor(resources.getColor(R.color.main_deep_blue))
+        binding.acceptRulesButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.main_blue))
+        binding.acceptRulesButton.setTextColor(resources.getColor(R.color.black))
         binding.acceptRulesButton.isEnabled = true
     }
 }

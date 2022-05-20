@@ -5,8 +5,9 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sk_health.domain.appointments.Appointment
+import com.example.sk_health.domain.appointments.AppointmentItemLocal
 import com.example.sk_health.domain.appointments.IAppointmentsProvisor
+import com.example.sk_health.ui.main.root.appointment_flow.appointment.AppointmentViewData
 import com.example.sk_health.vm.root.appointment_flow.AppointmentStatus
 import com.example.sk_health.vm.root.appointment_flow.AppointmentVisitType
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +23,7 @@ class AppointmentViewModel @Inject constructor(
     val appointment: MutableLiveData<AppointmentViewData> by lazy { MutableLiveData<AppointmentViewData>() }
     val validationError: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
     private var isAddMode = true
-    private var appointmentLocal: Appointment? = null
+    private var appointmentLocal: AppointmentItemLocal? = null
 
     fun init(appointmentId: String?) {
         if (!appointmentId.isNullOrBlank()) {
@@ -52,41 +53,43 @@ class AppointmentViewModel @Inject constructor(
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun mapToAppointmentLocal(appointmentViewData: AppointmentViewData): Appointment {
-        return Appointment().apply {
+    private fun mapToAppointmentLocal(appointmentViewData: AppointmentViewData): AppointmentItemLocal {
+        return AppointmentItemLocal().apply {
             id = UUID.randomUUID().toString()
             dateOfCreation = LocalDate.now().toString()
+            appointmentStatus = appointmentViewData.statusType.status
+            therapyType = appointmentViewData.therapyType.visitType
             dateOfAppointment = appointmentViewData.dateOfAppointment
-            doctorType = appointmentViewData.doctorType
-            doctor = appointmentViewData.doctor
+            doctorType = appointmentViewData.doctorType.capitalize()
+            doctor = appointmentViewData.doctor.capitalize()
             phone = appointmentViewData.phone
-            address = appointmentViewData.address
+            address = appointmentViewData.address.capitalize()
             photoUrl = appointmentViewData.photoUrl
-            disease = appointmentViewData.disease
-            note = appointmentViewData.notes
+            disease = appointmentViewData.disease.capitalize()
+            note = appointmentViewData.notes.capitalize()
         }
     }
 
-    private fun updateExisting(appointmentViewData: AppointmentViewData): Appointment? {
+    private fun updateExisting(appointmentViewData: AppointmentViewData): AppointmentItemLocal? {
         return appointmentLocal?.let {
-            Appointment().apply {
+            AppointmentItemLocal().apply {
                 id = it.id
                 dateOfCreation = it.dateOfCreation
                 appointmentStatus = appointmentViewData.statusType.status
                 therapyType = appointmentViewData.therapyType.visitType
                 dateOfAppointment = appointmentViewData.dateOfAppointment
-                doctor = appointmentViewData.doctor
-                doctorType = appointmentViewData.doctorType
+                doctor = appointmentViewData.doctor.capitalize()
+                doctorType = appointmentViewData.doctorType.capitalize()
                 phone = appointmentViewData.phone
-                address = appointmentViewData.address
+                address = appointmentViewData.address.capitalize()
                 photoUrl = appointmentViewData.photoUrl
-                disease = appointmentViewData.disease
-                note = appointmentViewData.notes
+                disease = appointmentViewData.disease.capitalize()
+                note = appointmentViewData.notes.capitalize()
             }
         }
     }
 
-    private fun matToAppointmentViewData(appointment: Appointment) = AppointmentViewData(
+    private fun matToAppointmentViewData(appointment: AppointmentItemLocal) = AppointmentViewData(
         doctor = appointment.doctor,
         doctorType = appointment.doctorType,
         therapyType = AppointmentVisitType.getByVisitType(appointment.therapyType),
@@ -107,9 +110,8 @@ class AppointmentViewModel @Inject constructor(
         val isDoctorValid = validateField(appointmentViewData.doctor)
         val isDoctorTypeValid = validateField(appointmentViewData.doctorType)
         val isDateOfAppointmentValid = validateField(appointmentViewData.dateOfAppointment)
-        val isDiseaseValid = validateField(appointmentViewData.disease)
 
-        val isValid = (isDoctorValid && isDoctorTypeValid && isDiseaseValid && isDateOfAppointmentValid)
+        val isValid = (isDoctorValid && isDoctorTypeValid && isDateOfAppointmentValid)
         if (!isValid) validationError.postValue(false)
 
         return isValid

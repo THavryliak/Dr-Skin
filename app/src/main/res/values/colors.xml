@@ -11,7 +11,7 @@
 
     <color name="main_blue">#00FAEB</color>
     <color name="transparent_main_blue">#E600FAEB</color>
-    <color name="transparent_white">#E6ffffff</color>
+    <color name="transparent_black">#E6000000</color>
     <color name="red">#fe2712</color>
     <color name="deep_yellow">#DCC81B</color>
     <color name="orange">#FF5722</color>
@@ -19,12 +19,16 @@
     <color name="deep_green">#45B64A</color>
     <color name="blue">#26D5EC</color>
     <color name="deep_purple">#F32163</color>
+    <color name="deepdddddddddddddddple">#00A123</color>
 
     <color name="deep_red">#CF3B2C</color>
     <color name="green">#00FF0A</color>
     <color name="yellow">#FFE500</color>
 
     <color name="main_deep_blue">#0869FA</color>
+    <color name="history_blue">#007BFF</color>
+    <color name="history_green">#A2FF1F</color>
+    <color name="history_creme">#FAAE52</color>
     <color name="main_teal">#00FFC6</color>
     <color name="disabled_button_color">#BEBEBE</color>
     <color name="disabled_button_text">#9F9F9F</color>
