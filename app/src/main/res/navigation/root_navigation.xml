@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.sk_health.ui.main.root.home.HomeFragment"
+        android:label="root_fragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/appointmentsFragment"
+        android:name="com.example.sk_health.ui.main.root.appointment_flow.appointment_list.AppointmentsListFragment"
+        android:label="fragment_appointments"
+        tools:layout="@layout/fragment_appointments" >
+        <action
+            android:id="@+id/action_appointmentsFragment_to_appointmentFragment"
+            app:destination="@id/appointmentFragment">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.sk_health.ui.main.root.history_flow.history_list.HistoryListFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history_list" >
+        <action
+            android:id="@+id/action_historyFragment_to_historyItemFragment"
+            app:destination="@id/historyItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentFragment"
+        android:name="com.example.sk_health.ui.main.root.appointment_flow.appointment.AppointmentFragment"
+        android:label="fragment_appointment"
+        tools:layout="@layout/fragment_appointment"/>
+    <fragment
+        android:id="@+id/historyItemFragment"
+        android:name="com.example.sk_health.ui.main.root.history_flow.history.HistoryItemFragment"
+        android:label="fragment_history_item"
+        tools:layout="@layout/fragment_history_item" />
+</navigation>

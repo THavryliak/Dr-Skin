@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/main_background"
+        tools:context=".ui.main.root.appointment_flow.appointment.AppointmentFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginTop="@dimen/common_margin"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:scrollbars="none">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/history_item_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#01B8B8"
+                    app:cardCornerRadius="@dimen/card_radius"
+                    tools:strokeColor="@color/red"
+                    app:strokeWidth="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/common_margin"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/rulesItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal">
+
+                            <View
+                                android:id="@+id/gradientCircle"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="10dp"
+                                android:background="@drawable/gradient_circle"
+                                android:elevation="8dp" />
+
+                            <ImageView
+                                android:id="@+id/disease_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:elevation="8dp"
+                                tools:src="@drawable/acne" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/disease_item_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_margin"
+                            android:fontFamily="@font/patrick_kedilay"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            tools:text="Acne" />
+
+                        <TextView
+                            android:id="@+id/disease_item_probability"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/probability"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/history_item_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            tools:text="05.09.2022"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/back_btn"
+                            app:cornerRadius="@dimen/card_radius"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:iconTint="@color/main_blue"
+                            app:icon="@drawable/back_arrow"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_history_btn"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="Delete history item"
+                app:cornerRadius="@dimen/card_radius" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

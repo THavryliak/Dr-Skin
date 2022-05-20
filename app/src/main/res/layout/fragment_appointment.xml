@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/main_background"
+        tools:context=".ui.main.root.appointment_flow.appointment.AppointmentFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginTop="@dimen/common_margin"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:scrollbars="none">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/appointment_form_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#01B8B8"
+                    app:cardCornerRadius="@dimen/card_radius"
+                    app:strokeColor="@color/main_blue"
+                    app:strokeWidth="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/tiny_margin"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/rulesItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal">
+
+                            <View
+                                android:id="@+id/gradientCircle"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="10dp"
+                                android:background="@drawable/gradient_circle"
+                                android:elevation="8dp" />
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/logoAnimation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="120dp"
+                                android:layout_gravity="center"
+                                android:elevation="8dp"
+                                app:lottie_autoPlay="true"
+                                app:lottie_rawRes="@raw/doctor_card" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/patrick_kedilay"
+                            android:gravity="center"
+                            android:text="Appointment card"
+                            android:textColor="@color/black"
+                            android:textSize="30sp" />
+
+                        <ProgressBar
+                            android:id="@+id/db_loading_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/tiny_margin"
+                            android:indeterminateTint="@color/black"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/doctor_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none"
+                            app:errorTextColor="@color/red">
+
+                            <EditText
+                                android:id="@+id/doctor_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Doctor:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/doctor_type_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none"
+                            app:errorTextColor="@color/red">
+
+                            <EditText
+                                android:id="@+id/doctor_type_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Doctor type:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none">
+
+                            <EditText
+                                android:id="@+id/phone_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Phone:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none">
+
+                            <EditText
+                                android:id="@+id/address_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Address:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/disease_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none">
+
+                            <EditText
+                                android:id="@+id/disease_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Disease:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/appointment_date_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none"
+                            app:errorTextColor="@color/red">
+
+                            <EditText
+                                android:id="@+id/appointment_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Date of appointment:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none">
+
+                            <EditText
+                                android:id="@+id/notes_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Note:"
+                                android:padding="@dimen/card_margin"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/main_teal"
+                                android:textSize="20sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <TextView
+                            android:id="@+id/status_choose_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/patrick_kedilay"
+                            android:gravity="center"
+                            android:text="Update status"
+                            android:textColor="@color/black"
+                            android:textSize="25sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:layout_marginVertical="@dimen/common_margin"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/done_status_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/tiny_margin"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/white"
+                                android:text="Accepted"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/deep_green"
+                                app:strokeWidth="2dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/new_status_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/tiny_margin"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/white"
+                                android:text="New"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/blue"
+                                app:strokeWidth="2dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/rejected_status_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginHorizontal="@dimen/tiny_margin"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/white"
+                                android:text="Rejected"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/deep_red"
+                                app:strokeWidth="2dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/therapy_choose_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/patrick_kedilay"
+                            android:gravity="center"
+                            android:text="Choose type of visit"
+                            android:textColor="@color/black"
+                            android:textSize="25sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:layout_marginVertical="@dimen/common_margin"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/common_visit_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:text="Common"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/blue"
+                                app:strokeWidth="2dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/therapy_visit_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:text="Therapy"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/orange"
+                                app:strokeWidth="2dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/consultation_visit_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:text="Consultation"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/purple"
+                                app:strokeWidth="2dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/children_visit_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:text="Children"
+                                android:textColor="@color/black"
+                                app:cornerRadius="@dimen/card_radius"
+                                app:strokeColor="@color/deep_purple"
+                                app:strokeWidth="2dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:fontFamily="@font/patrick_kedilay"
+                            android:id="@+id/attached_photo_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Attached photo"
+                            android:textColor="@color/black"
+                            android:textSize="25sp"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/attached_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:padding="@dimen/common_margin"
+                            android:visibility="gone"
+                            tools:src="@drawable/doc_image"
+                            tools:visibility="visible" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/remove_photo_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:backgroundTint="@color/main_blue"
+                            android:textColor="@color/black"
+                            android:enabled="true"
+                            android:text="Remove photo"
+                            android:visibility="gone"
+                            app:cornerRadius="@dimen/card_radius"
+                            tools:visibility="visible" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/delete_appointment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:backgroundTint="@color/main_blue"
+                            android:enabled="true"
+                            android:text="Delete appointment"
+                            android:visibility="gone"
+                            app:cornerRadius="@dimen/card_radius"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/attachPhoto"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="Attach photo"
+                app:cornerRadius="@dimen/card_radius" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveAppointment"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="Save appointment"
+                app:cornerRadius="@dimen/card_radius" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

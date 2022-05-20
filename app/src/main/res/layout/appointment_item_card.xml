@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/appointment_item_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/card_margin"
+        android:layout_marginVertical="@dimen/tiny_margin"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="3dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_gradient">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/gradientCircle"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/gradient_circle"
+                        android:elevation="7dp" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/logoAnimation"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:elevation="8dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_rawRes="@raw/dr_card" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/card_margin"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/doctor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/patrick_kedilay"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        tools:text="Dr. Skin" />
+
+                    <TextView
+                        android:id="@+id/doctor_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        tools:text="Surgeon" />
+
+                    <TextView
+                        android:id="@+id/appointment_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        tools:text="20.05.2022" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/status_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:backgroundTint="@color/blue"
+                            android:elevation="10dp"
+                            app:cardCornerRadius="@dimen/card_radius">
+
+                            <TextView
+                                android:id="@+id/status_card_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:fontFamily="@font/patrick_kedilay"
+                                android:text="New"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/therapy_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/blue"
+                            android:elevation="10dp"
+                            app:cardCornerRadius="@dimen/card_radius">
+
+                            <TextView
+                                android:id="@+id/therapy_card_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:fontFamily="@font/patrick_kedilay"
+                                android:text="Common"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/creation_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:gravity="end"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        tools:text="16.05.2022" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

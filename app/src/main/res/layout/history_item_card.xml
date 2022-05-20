@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/history_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/card_margin"
+    android:layout_marginVertical="@dimen/tiny_margin"
+    app:cardCornerRadius="@dimen/card_radius"
+    app:strokeColor="@color/red"
+    app:strokeWidth="3dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_gradient">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/gradientCircle"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/gradient_circle"
+                    android:elevation="5dp" />
+
+                <ImageView
+                    android:id="@+id/history_card_disease_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:elevation="11dp"
+                    tools:src="@drawable/acne" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/history_card_disease_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/card_margin"
+                android:fontFamily="@font/patrick_kedilay"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="Acne" />
+
+            <TextView
+                android:id="@+id/history_card_date_of_creation_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:text="16.05.2022" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</com.google.android.material.card.MaterialCardView>
