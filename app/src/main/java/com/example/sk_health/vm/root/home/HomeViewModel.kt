@@ -47,7 +47,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun getDiseaseInfo(label: String, probability: String): DiseaseViewData {
+    private fun getDiseaseInfo(label: String, probability: Double): DiseaseViewData {
         return when(label) {
             DiseaseLabels.ACNE.diseaseLabel -> DiseaseViewData(title = label, probability = probability, imageRes = R.drawable.acne, textRes = R.string.acne_info)
             DiseaseLabels.NORMAL.diseaseLabel -> DiseaseViewData(title = label, probability = probability, imageRes = R.drawable.healthy_skin, textRes = R.string.normal_skin_info)

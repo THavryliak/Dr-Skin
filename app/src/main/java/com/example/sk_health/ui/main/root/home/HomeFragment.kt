@@ -23,9 +23,9 @@ import androidx.fragment.app.viewModels
 import com.example.sk_health.App
 import com.example.sk_health.R
 import com.example.sk_health.databinding.FragmentHomeBinding
+import com.example.sk_health.ui.main.root.history_flow.history.HistoryItemViewData
 import com.example.sk_health.utils.ImageUtil.toBitmap
 import com.example.sk_health.vm.root.history_flow.HistoryDiseaseType
-import com.example.sk_health.ui.main.root.history_flow.history.HistoryItemViewData
 import com.example.sk_health.vm.root.home.HomeViewModel
 import java.time.LocalDate
 import java.util.concurrent.ExecutorService
@@ -91,7 +91,7 @@ class HomeFragment : Fragment() {
 
         viewModel.photoResult.observe(viewLifecycleOwner) {
             binding.captureResultCard.label.text = it.title
-            binding.captureResultCard.probability.text = resources.getString(R.string.probability, it.probability)
+            binding.captureResultCard.probability.text = resources.getString(R.string.probability, (it.probability * 100)).plus("%")
             binding.captureResultCard.diseaseImage.setImageResource(it.imageRes)
             binding.captureResultCard.diseaseInfo.setText(it.textRes)
         }
@@ -154,7 +154,7 @@ class HomeFragment : Fragment() {
             id = null,
             disease = HistoryDiseaseType.getByName(binding.captureResultCard.label.text.toString()),
             dateOfCreation = LocalDate.now().toString(),
-            probability = binding.captureResultCard.probability.text.toString().replace("[^0-9]".toRegex(), "").toDouble()
+            probability = binding.captureResultCard.probability.text.toString().replace("[^0-9,.]".toRegex(), "").replace(",",".").toDouble()
         )
     }
 

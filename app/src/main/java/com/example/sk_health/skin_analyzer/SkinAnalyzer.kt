@@ -12,9 +12,9 @@ class SkinAnalyzer @Inject constructor(
 
     private val model = SkinModel.newInstance(context)
 
-    override fun analyze(photo: Bitmap): Pair<String, String> {
+    override fun analyze(photo: Bitmap): Pair<String, Double> {
         val image = TensorImage.fromBitmap(photo)
         val output = model.process(image).probabilityAsCategoryList.maxByOrNull { it.score }!!
-        return Pair(output.label, output.score.toString())
+        return Pair(output.label, output.score.toDouble())
     }
 }

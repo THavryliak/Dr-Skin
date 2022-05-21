@@ -27,7 +27,6 @@
                     android:id="@+id/appointment_form_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#01B8B8"
                     app:cardCornerRadius="@dimen/card_radius"
                     app:strokeColor="@color/main_blue"
                     app:strokeWidth="3dp">
@@ -35,7 +34,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="@dimen/tiny_margin"
+                        android:background="@drawable/card_gradient"
                         android:orientation="vertical">
 
                         <FrameLayout
@@ -327,10 +326,10 @@
                         </LinearLayout>
 
                         <TextView
-                            android:fontFamily="@font/patrick_kedilay"
                             android:id="@+id/attached_photo_text"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:fontFamily="@font/patrick_kedilay"
                             android:gravity="center"
                             android:text="Attached photo"
                             android:textColor="@color/black"
@@ -354,23 +353,24 @@
                             android:layout_gravity="center"
                             android:layout_marginHorizontal="@dimen/common_margin"
                             android:backgroundTint="@color/main_blue"
-                            android:textColor="@color/black"
                             android:enabled="true"
                             android:text="Remove photo"
+                            android:textColor="@color/black"
                             android:visibility="gone"
                             app:cornerRadius="@dimen/card_radius"
                             tools:visibility="visible" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/delete_appointment"
+                            android:layout_marginBottom="@dimen/common_margin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:textColor="@color/black"
                             android:layout_marginHorizontal="@dimen/common_margin"
                             android:backgroundTint="@color/main_blue"
                             android:enabled="true"
                             android:text="Delete appointment"
+                            android:textColor="@color/black"
                             android:visibility="gone"
                             app:cornerRadius="@dimen/card_radius"
                             tools:visibility="visible" />
