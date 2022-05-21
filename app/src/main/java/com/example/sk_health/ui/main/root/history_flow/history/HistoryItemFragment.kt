@@ -34,7 +34,7 @@ class HistoryItemFragment : Fragment() {
 
         viewModel.init(args)
 
-        binding.deleteHistoryBtn.setOnClickListener {
+        binding.delBtn.setOnClickListener {
             viewModel.deleteHistory()
             Navigation.findNavController(binding.root).popBackStack()
         }
@@ -50,11 +50,12 @@ class HistoryItemFragment : Fragment() {
 
     private fun fillCardWithData(viewData: HistoryItemViewData) {
         binding.apply {
-            diseaseItemProbability.text = resources.getString(R.string.probability, viewData.probability.toString())
+            diseaseItemProbability.text = resources.getString(R.string.probability, viewData.probability).plus("%")
             historyItemCard.strokeColor = Color.parseColor(viewData.disease.color)
             diseaseItemName.text = viewData.disease.disease
             historyItemDate.text = viewData.dateOfCreation
             backBtn.iconTint = ColorStateList.valueOf(Color.parseColor(viewData.disease.color))
+            delBtn.iconTint = ColorStateList.valueOf(Color.parseColor(viewData.disease.color))
             diseaseImage.setImageResource(viewData.disease.resId)
         }
     }
